@@ -6,9 +6,9 @@ import (
 
 	"github.com/hashicorp/go-retryablehttp"
 
-	"github.com/gphotosuploader/google-photos-api-client-go/v2/albums"
-	"github.com/gphotosuploader/google-photos-api-client-go/v2/media_items"
-	"github.com/gphotosuploader/google-photos-api-client-go/v2/uploader/basic"
+	"github.com/mladshij/google-photos-api-client-go/albums"
+	"github.com/mladshij/google-photos-api-client-go/media_items"
+	"github.com/mladshij/google-photos-api-client-go/uploader/basic"
 )
 
 // Client is a Google Photos client with enhanced capabilities.

@@ -6,8 +6,8 @@ import (
 	"io"
 	"net/http"
 
-	"github.com/gphotosuploader/google-photos-api-client-go/v2/internal/log"
-	"github.com/gphotosuploader/google-photos-api-client-go/v2/uploader"
+	"github.com/mladshij/google-photos-api-client-go/internal/log"
+	"github.com/mladshij/google-photos-api-client-go/uploader"
 )
 
 // BasicUploader implements an HTTP uploader.

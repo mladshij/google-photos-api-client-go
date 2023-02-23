@@ -3,7 +3,7 @@ package mocks
 import (
 	"context"
 
-	"github.com/gphotosuploader/google-photos-api-client-go/v2/albums"
+	"github.com/mladshij/google-photos-api-client-go/albums"
 )
 
 // MockedAlbumsService mocks the albums service.
