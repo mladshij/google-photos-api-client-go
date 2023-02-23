@@ -60,6 +60,7 @@ func (r PhotosLibraryMediaItemsRepository) CreateManyToAlbum(ctx context.Context
 	newMediaItems := make([]*photoslibrary.NewMediaItem, len(mediaItems))
 	for i, mediaItem := range mediaItems {
 		newMediaItems[i] = &photoslibrary.NewMediaItem{
+			Description:     mediaItem.Description,
 			SimpleMediaItem: &photoslibrary.SimpleMediaItem{UploadToken: mediaItem.UploadToken},
 		}
 	}
@@ -128,10 +129,11 @@ func (r PhotosLibraryMediaItemsRepository) ListByAlbum(ctx context.Context, albu
 // toMediaItem transforms a `photoslibrary.MediaItem` into a `MediaItem`.
 func toMediaItem(item *photoslibrary.MediaItem) MediaItem {
 	return MediaItem{
-		ID:         item.Id,
-		ProductURL: item.ProductUrl,
-		BaseURL:    item.BaseUrl,
-		MimeType:   item.MimeType,
+		ID:          item.Id,
+		Description: item.Description,
+		ProductURL:  item.ProductUrl,
+		BaseURL:     item.BaseUrl,
+		MimeType:    item.MimeType,
 		MediaMetadata: MediaMetadata{
 			CreationTime: item.MediaMetadata.CreationTime,
 			Width:        strconv.FormatInt(item.MediaMetadata.Width, 10),

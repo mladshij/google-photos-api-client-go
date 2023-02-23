@@ -25,4 +25,5 @@ type MediaMetadata struct {
 type SimpleMediaItem struct {
 	UploadToken string
 	FileName    string
+	Description string
 }
