@@ -18,8 +18,8 @@ type Client struct {
 	Uploader   MediaUploader
 }
 
-// UploadFileToLibrary uploads the specified file to Google Photos.
-func (c Client) UploadFileToLibrary(ctx context.Context, filePath string) (media_items.MediaItem, error) {
+// UploadFileWithDescToLibrary uploads the specified file to Google Photos with some description.
+func (c Client) UploadFileWithDescToLibrary(ctx context.Context, filePath string, fileDescription string) (media_items.MediaItem, error) {
 	token, err := c.Uploader.UploadFile(ctx, filePath)
 	if err != nil {
 		return media_items.MediaItem{}, err
@@ -27,7 +27,13 @@ func (c Client) UploadFileToLibrary(ctx context.Context, filePath string) (media
 	return c.MediaItems.Create(ctx, media_items.SimpleMediaItem{
 		UploadToken: token,
 		FileName:    filePath,
+		Description: fileDescription,
 	})
+}
+
+// UploadFileToLibrary uploads the specified file to Google Photos (without description)
+func (c Client) UploadFileToLibrary(ctx context.Context, filePath string) (media_items.MediaItem, error) {
+	return c.UploadFileWithDescToLibrary(ctx, filePath, "")
 }
 
 // UploadFileToAlbum uploads the specified file to the album in Google Photos.
